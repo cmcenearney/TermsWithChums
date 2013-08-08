@@ -3,6 +3,9 @@ TERMS WITH CHUMS
 
 final project for CSF
 
+It's going to be awesome
+
+
 
 board display... in the terminal?
 
@@ -22,5 +25,6 @@ board display... in the terminal?
 13 - - - - H - - - I - - - - - -
 14 - - - T E R M I N A L - - - -
 15 - - - - - - - - G - - - - - -
+
 
 
