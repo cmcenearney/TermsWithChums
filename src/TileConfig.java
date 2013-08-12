@@ -20,6 +20,7 @@ public class TileConfig {
     public static final HashMap<String, Tuple> tile_config = new HashMap<String, Tuple>();
 
     public TileConfig() {
+        // using Tuple format to store the number of tiles and point value
         tile_config.put("E", new Tuple(12, 1));
         tile_config.put("A",  new Tuple(9, 1));
         tile_config.put("I",  new Tuple(9, 1));
