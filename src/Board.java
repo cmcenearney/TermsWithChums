@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /*
 - should the Board be a singleton?
@@ -8,7 +7,7 @@ import java.util.HashMap;
 
 public class Board {
 
-    private ArrayList<ArrayList<Boardspace>> spaces;
+    private ArrayList<ArrayList<BoardSpace>> spaces;
 
     public Board(){
 

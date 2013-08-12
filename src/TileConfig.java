@@ -1,7 +1,8 @@
 import java.util.HashMap;
 
 /*
-copy tile dist from wordsWithFriends:
+copy tile distribution from wordsWithFriends:
+TODO: store this as config data somewhere
 A:9
 B:2
 C:2
