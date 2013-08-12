@@ -6,11 +6,11 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Application.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376276141242" ignored="false" />
     <file path="/fragment.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376278499268" ignored="false" />
-    <file path="/TileBag.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376275621225" ignored="false" />
+    <file path="/TileBag.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376314931393" ignored="false" />
     <file path="/Board.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376275671981" ignored="false" />
     <file path="/Boardspace.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376273149792" ignored="false" />
-    <file path="/TileConfig.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376279457520" ignored="false" />
-    <file path="/Tile.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376274546275" ignored="false" />
+    <file path="/TileConfig.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376314760430" ignored="false" />
+    <file path="/Tile.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376314320592" ignored="false" />
     <file path="/TileBagTest.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376275547271" ignored="false" />
     <file path="/Dummy.txt" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376278503049" ignored="false" />
     <file path="/Game.java" changelist="16224d78-b2dc-4dae-86dc-0035fa7500c0" time="1376279520125" ignored="false" />
@@ -87,7 +87,7 @@
       <file leaf-file-name="Tile.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Tile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
+            <state line="12" column="25" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -105,7 +105,7 @@
       <file leaf-file-name="TileBag.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TileBag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="13" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0">
+            <state line="15" column="46" selection-start="503" selection-end="503" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#146#152#0" expanded="true" />
@@ -125,11 +125,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TileConfig.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TileConfig.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TileConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="41" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="47" column="47" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.80479455">
+              <folding>
+                <element signature="e#420#435#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,10 +145,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="33" selection-start="164" selection-end="164" vertical-scroll-proportion="0.10663507">
+            <state line="9" column="33" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -186,23 +188,23 @@
       <list>
         <option value="$PROJECT_DIR$/src/test/ApplicationTest.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
-        <option value="$PROJECT_DIR$/src/Tile.java" />
         <option value="$PROJECT_DIR$/test/TileBagTest.java" />
         <option value="$PROJECT_DIR$/src/TileBagTest.java" />
-        <option value="$PROJECT_DIR$/src/TileBag.java" />
         <option value="$PROJECT_DIR$/src/Board.java" />
         <option value="$PROJECT_DIR$/src/Boardspace.java" />
         <option value="$PROJECT_DIR$/src/Application.java" />
         <option value="$PROJECT_DIR$/src/GameTest.java" />
-        <option value="$PROJECT_DIR$/src/TileConfig.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/Tile.java" />
+        <option value="$PROJECT_DIR$/src/TileConfig.java" />
+        <option value="$PROJECT_DIR$/src/TileBag.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="2560" />
-    <option name="height" value="1414" />
+    <option name="width" value="1680" />
+    <option name="height" value="1024" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -298,7 +300,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GameTest.dictionaryIsLoading">
+  <component name="RunManager" selected="JUnit.TileBagTest">
     <configuration default="false" name="GameTest.wordCheck" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="TermsWithChums" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -504,7 +506,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2560" height="1414" extended-state="6" />
+    <frame x="0" y="22" width="1680" height="1024" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -520,8 +522,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940334" sideWeight="0.67001545" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998455" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2123623" sideWeight="0.670354" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -673,17 +675,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tile.java">
+    <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="13" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TileConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="41" selection-start="117" selection-end="117" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="9" column="33" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -696,9 +693,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="25" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/TileBag.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="91" selection-end="91" vertical-scroll-proportion="0.0">
+        <state line="15" column="46" selection-start="503" selection-end="503" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#146#152#0" expanded="true" />
@@ -706,11 +710,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/TileConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="33" selection-start="164" selection-end="164" vertical-scroll-proportion="0.10663507">
+        <state line="47" column="47" selection-start="1714" selection-end="1714" vertical-scroll-proportion="0.80479455">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#420#435#0" expanded="true" />
           </folding>
         </state>
       </provider>

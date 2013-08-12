@@ -1,70 +1,51 @@
 import java.util.HashMap;
 
 /*
-copy tile distribution from wordsWithFriends:
+copy tile distribution from resources/letterFrequencies.txt
 TODO: store this as config data somewhere
-A:9
-B:2
-C:2
-D:5
-E:13
-F:2
-G:3
-H:4
-I:8
-J:1
-K:1
-L:4
-M:2
-N:5
-O:8
-P:2
-Q:1
-R:6
-S:5
-T:7
-U:4
-V:2
-W:2
-X:1
-Y:2
-Z:1
-BLANKS:2
  */
 
 
 public class TileConfig {
 
-    public static final HashMap<String, Integer> tile_config = new HashMap<String, Integer>();
+    public class Tuple {
+        public final int x;
+        public final int y;
+        public Tuple(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    public static final HashMap<String, Tuple> tile_config = new HashMap<String, Tuple>();
 
     public TileConfig() {
-        tile_config.put("a", 9);
-        tile_config.put("b", 2);
-        tile_config.put("c", 2);
-        tile_config.put("d", 5);
-        tile_config.put("e", 13);
-        tile_config.put("f", 2);
-        tile_config.put("g", 3);
-        tile_config.put("h", 4);
-        tile_config.put("i", 8);
-        tile_config.put("j", 1);
-        tile_config.put("k", 1);
-        tile_config.put("l", 4);
-        tile_config.put("m", 2);
-        tile_config.put("n", 5);
-        tile_config.put("o", 8);
-        tile_config.put("p", 2);
-        tile_config.put("q", 1);
-        tile_config.put("r", 6);
-        tile_config.put("s", 5);
-        tile_config.put("t", 7);
-        tile_config.put("u", 4);
-        tile_config.put("v", 2);
-        tile_config.put("w", 2);
-        tile_config.put("x", 1);
-        tile_config.put("y", 2);
-        tile_config.put("z", 1);
-        tile_config.put("blank", 2);
+        tile_config.put("E", new Tuple(12, 1));
+        tile_config.put("A",  new Tuple(9, 1));
+        tile_config.put("I",  new Tuple(9, 1));
+        tile_config.put("O",  new Tuple(8, 1));
+        tile_config.put("N",  new Tuple(6, 1));
+        tile_config.put("R",  new Tuple(6, 1));
+        tile_config.put("T",  new Tuple(6, 1));
+        tile_config.put("L",  new Tuple(4, 1));
+        tile_config.put("S",  new Tuple(4, 1));
+        tile_config.put("U",  new Tuple(4, 1));
+        tile_config.put("D",  new Tuple(4, 2));
+        tile_config.put("G",  new Tuple(3, 2));
+        tile_config.put("B",  new Tuple(2, 3));
+        tile_config.put("C",  new Tuple(2, 3));
+        tile_config.put("M",  new Tuple(2, 3));
+        tile_config.put("P",  new Tuple(2, 3));
+        tile_config.put("F",  new Tuple(2, 4));
+        tile_config.put("H",  new Tuple(2, 4));
+        tile_config.put("V",  new Tuple(2, 4));
+        tile_config.put("W",  new Tuple(2, 4));
+        tile_config.put("Y",  new Tuple(2, 4));
+        tile_config.put("K",  new Tuple(1, 5));
+        tile_config.put("J",  new Tuple(1, 8));
+        tile_config.put("X",  new Tuple(1, 8));
+        tile_config.put("Q",  new Tuple(1, 10));
+        tile_config.put("Z",  new Tuple(1, 10));
     }
 
 }

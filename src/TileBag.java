@@ -9,9 +9,11 @@ public class TileBag {
     public TileBag(){
         TileConfig config = new TileConfig();
         for (String key : config.tile_config.keySet()) {
-            int num = config.tile_config.get(key);
+            TileConfig.Tuple tuple = config.tile_config.get(key);
+            int num = tuple.x;
+            int points = tuple.y;
             for (int i = 1; i <= num; i++){
-                tiles.add(new Tile(key));
+                tiles.add(new Tile(key, points));
             }
         }
     }
