@@ -2,9 +2,7 @@ import org.junit.Test;
 //import java.nio.file;
 import java.util.Arrays;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class GameTest {
 
@@ -14,13 +12,8 @@ public class GameTest {
     public void dictionaryIsLoading(){
         assertTrue(test_game.getDictionary().size() > 0);
     }
-    /* java 7 only ?!??!?!?!
     @Test
-    public void readFile(){
-        Path file = "";
-
-        boolean isRegularExecutableFile = Files.isRegularFile(file) &
-                Files.isReadable(file) & Files.isExecutable(file);
+    public void wordCheck(){
+        assertTrue(test_game.validWord("Abadite"));
     }
-    */
 }

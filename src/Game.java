@@ -1,20 +1,19 @@
 import java.io.*;
 import java.util.ArrayList;
 
-
 public class Game {
 
-    private ArrayList<String> dictionary;
+    private ArrayList<String> dictionary = new ArrayList<String>();
 
     public Game(){
-        //TODO: get this working!
-        File file = new File("/Users/c.mcenearney/TermsWithChums/resources/words.txt");
+
+        File file = new File("/Users/colinmcenearney/TermsWithChums/resources/words.txt");
         try {
             BufferedReader in = new BufferedReader(new FileReader(file));
             String line;
             while ((line = in.readLine()) != null) {
                 if (line.length() > 0) {
-                dictionary.add(line);
+                    this.dictionary.add(line);
                 }
             }
         }
@@ -40,8 +39,8 @@ public class Game {
 
     // TODO this is just a placeholder, replace with more performant lookup
     public boolean validWord(String word){
-        for (String s : dictionary){
-            if (s == word){
+        for (String s : this.dictionary){
+            if (s.equals(word)){
                 return true;
             }
         }
