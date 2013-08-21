@@ -202,4 +202,52 @@ and in play:
 15 |||          =              |||  G           =          |||
 ```
 
+board display 2.4
+------------------
 
+is this more intuitive?  doubleness and tripleness have some consistency, and the [] means word not letter
+
+[=]  triple word score  
+[≡]  double word score  
+ =   double letter score  
+ ≡   triple letter score  
+
+
+```
+    A   B   C   D   E   F   G   H   I   J   K   L   M   N   O
+01 [≡]          =              [≡]              =          [≡]
+02     [=]              ≡               ≡              [=]    
+03         [=]              =       =              [=]        
+04  =          [=]              =              [=]          = 
+05                 [=]                     [=]          ≡     
+06      ≡               ≡               ≡                     
+07          =               =       =               =         
+08 [≡]          =              [=]              =          [≡]
+09          =               =       =               =         
+10      ≡               ≡               ≡               ≡     
+11                 [=]                     [=]                
+12  =          [=]              =              [=]          = 
+13         [=]              =       =              [=]        
+14     [=]              ≡               ≡              [=]    
+15 [≡]          =              [≡]              =          [≡]  
+```
+and in play:
+
+```
+    A   B   C   D   E   F   G   H   I   J   K   L   M   N   O
+01 [≡]          =              [≡]              =          [≡]
+02     [=]              ≡               ≡              [=]    
+03         [=]              =       =              [=]        
+04  =          [=]              =              [=]          = 
+05                 [=]                     [=]          ≡     
+06      ≡               W   O   R   D   S                     
+07          =               =       I              =         
+08 [≡]          =              [=]  S           =          [≡]
+09          =               =       P               =         
+10      ≡               ≡           L   ≡               ≡     
+11                 [=]              A   T  [=]                
+12  =          [=]  T           =   Y          [=]          = 
+13         [=]      H       =       I              [=]        
+14     [=]      T   E   R   M   I   N   A   L          [=]    
+15 [≡]          =              [≡]  G           =          [≡]
+```
