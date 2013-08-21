@@ -34,12 +34,12 @@ board consists of 15 rows, 15 board-spaces each
 
 each board-space is three characters wide. board-spaces are separated by one space.
 
-___  empty space represented by three underscores
-|||  triple word score
-| |  double word score
- =   double letter score
- ≡   triple letter score
- Z   an occupied space, letter is centered, surrounded by 1 space on each side
+___  empty space represented by three underscores  
+|||  triple word score  
+| |  double word score  
+ =   double letter score  
+ ≡   triple letter score  
+ Z   an occupied space, letter is centered, surrounded by 1 space on each side  
 
 ```
     A   B   C   D   E   F   G   H   I   J   K   L   M   N   O
@@ -155,3 +155,51 @@ and in play
 
 15 ||| ___ ___  =  ___ ___ ___ |||  G  ___ ___  =  ___ ___ |||
 ```
+
+board display 2.3
+------------------
+
+ditch the underscores  
+
+maybe instead of constant clutter give players the option to toggle a view that shows the special spaces?
+
+```
+    A   B   C   D   E   F   G   H   I   J   K   L   M   N   O
+01 |||          =              |||              =          |||
+02     | |              ≡               ≡              | |    
+03         | |              =       =              | |        
+04  =          | |              =              | |          = 
+05                 | |                     | |          ≡     
+06      ≡               ≡               ≡                     
+07          =               =       =               =         
+08 |||          =              | |              =          |||
+09          =               =       =               =         
+10      ≡               ≡               ≡               ≡     
+11                 | |                     | |                
+12  =          | |              =              | |          = 
+13         | |              =       =              | |        
+14     | |              ≡               ≡              | |    
+15 |||          =              |||              =          |||  
+```
+and in play:
+
+```
+    A   B   C   D   E   F   G   H   I   J   K   L   M   N   O
+01 |||          =              |||              =          |||
+02     | |              ≡               ≡              | |    
+03         | |              =       =              | |        
+04  =          | |              =              | |          = 
+05                 | |                     | |          ≡     
+06      ≡               W   O   R   D   S                     
+07          =               =       I              =         
+08 |||          =              | |  S           =          |||
+09          =               =       P               =         
+10      ≡               ≡           L   ≡               ≡     
+11                 | |              A   T  | |                
+12  =          | |  T           =   Y          | |          = 
+13         | |      H       =       I              | |        
+14     | |      T   E   R   M   I   N   A   L          | |    
+15 |||          =              |||  G           =          |||
+```
+
+
