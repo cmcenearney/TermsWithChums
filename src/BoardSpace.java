@@ -1,18 +1,30 @@
 public class BoardSpace {
 
-    private boolean double_letter;
-    private boolean double_word;
-    private boolean triple_letter;
-    private boolean triple_word;
+    private static final String[] valid_types = {"double_letter","double_word","triple_letter", "triple_word", "normal"};
 
-    public BoardSpace(boolean dblltr, boolean dblword, boolean trplltr, boolean trplwrd){
-        this.double_letter = dblltr;
-        this.double_word = dblword;
-        this.triple_letter = trplltr;
-        this.triple_word = trplwrd;
+    private String type = "normal";
+    private String value = null;
+
+    public BoardSpace(){
     }
 
+    // question: does it make sense to enforce validity of the type here?
+    // and if so, how - exception? invalid defaults to normal?
+    public BoardSpace(String type){
+        this.type = type;
+    }
 
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getType() {
+        return type;
+    }
 
 }
 
