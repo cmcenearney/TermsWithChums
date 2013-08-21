@@ -1,6 +1,6 @@
 public class BoardSpace {
 
-    private static final String[] valid_types = {"double_letter","double_word","triple_letter", "triple_word", "normal"};
+    private static final String[] valid_types = {"double_letter","double_word","triple_letter", "triple_word", "plain"};
 
     private String type = "normal";
     private String value = null;

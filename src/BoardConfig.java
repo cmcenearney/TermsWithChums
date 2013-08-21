@@ -11,21 +11,21 @@ public class BoardConfig {
 
     public BoardConfig() {
 
-        String[] row1 = { "triple_word",  "normal",  "normal",  "double_letter",  "normal",  "normal",  "normal",  "triple_word",  "normal",  "normal",  "normal",  "double_letter",  "normal",  "normal",  "triple_word"};
-        String[] row2 = { "normal",  "double_word",  "normal",  "normal",  "normal",  "triple_letter",  "normal",  "normal",  "normal",  "triple_letter",  "normal",  "normal",  "normal",  "double_word",  "normal"};
-        String[] row3 = { "normal",  "normal",  "double_word",  "normal",  "normal",  "normal",  "double_letter",  "normal",  "double_letter",  "normal",  "normal",  "normal",  "double_word",  "normal",  "normal"};
-        String[] row4 = { "double_letter",  "normal",  "normal",  "double_word",  "normal",  "normal",  "normal",  "double_letter",  "normal",  "normal",  "normal",  "double_word",  "normal",  "normal",  "double_letter"};
-        String[] row5 = { "normal",  "normal",  "normal",  "normal",  "double_word",  "normal",  "normal",  "normal",  "normal",  "normal",  "double_word",  "normal",  "normal",  "triple_letter",  "normal"};
-        String[] row6 = { "normal",  "triple_letter",  "normal",  "normal",  "normal",  "triple_letter",  "normal",  "normal",  "normal",  "triple_letter",  "normal",  "normal",  "normal",  "normal",  "normal"};
-        String[] row7 = { "normal",  "normal",  "double_letter",  "normal",  "normal",  "normal",  "double_letter",  "normal",  "double_letter",  "normal",  "normal",  "normal",  "double_letter",  "normal",  "normal"};
-        String[] row8 = { "triple_word",  "normal",  "normal",  "double_letter",  "normal",  "normal",  "normal",  "double_word",  "normal",  "normal",  "normal",  "double_letter",  "normal",  "normal",  "triple_word"};
-        String[] row9 = { "normal",  "normal",  "double_letter",  "normal",  "normal",  "normal",  "double_letter",  "normal",  "double_letter",  "normal",  "normal",  "normal",  "double_letter",  "normal",  "normal"};
-        String[] row10 = { "normal",  "triple_letter",  "normal",  "normal",  "normal",  "triple_letter",  "normal",  "normal",  "normal",  "triple_letter",  "normal",  "normal",  "normal",  "triple_letter",  "normal"};
-        String[] row11 = { "normal",  "normal",  "normal",  "normal",  "double_word",  "normal",  "normal",  "normal",  "normal",  "normal",  "double_word",  "normal",  "normal",  "normal",  "normal"};
-        String[] row12 = { "double_letter",  "normal",  "normal",  "double_word",  "normal",  "normal",  "normal",  "double_letter",  "normal",  "normal",  "normal",  "double_word",  "normal",  "normal",  "double_letter"};
-        String[] row13 = { "normal",  "normal",  "double_word",  "normal",  "normal",  "normal",  "double_letter",  "normal",  "double_letter",  "normal",  "normal",  "normal",  "double_word",  "normal",  "normal"};
-        String[] row14 = { "normal",  "double_word",  "normal",  "normal",  "normal",  "triple_letter",  "normal",  "normal",  "normal",  "triple_letter",  "normal",  "normal",  "normal",  "double_word",  "normal" };
-        String[] row15 = { "triple_word",  "normal",  "normal",  "double_letter",  "normal",  "normal",  "normal",  "triple_word",  "normal",  "normal",  "normal",  "double_letter",  "normal",  "normal",  "triple_word"};
+        String[] row1 = { "triple_word",  "plain",  "plain",  "double_letter",  "plain",  "plain",  "plain",  "triple_word",  "plain",  "plain",  "plain",  "double_letter",  "plain",  "plain",  "triple_word"};
+        String[] row2 = { "plain",  "double_word",  "plain",  "plain",  "plain",  "triple_letter",  "plain",  "plain",  "plain",  "triple_letter",  "plain",  "plain",  "plain",  "double_word",  "plain"};
+        String[] row3 = { "plain",  "plain",  "double_word",  "plain",  "plain",  "plain",  "double_letter",  "plain",  "double_letter",  "plain",  "plain",  "plain",  "double_word",  "plain",  "plain"};
+        String[] row4 = { "double_letter",  "plain",  "plain",  "double_word",  "plain",  "plain",  "plain",  "double_letter",  "plain",  "plain",  "plain",  "double_word",  "plain",  "plain",  "double_letter"};
+        String[] row5 = { "plain",  "plain",  "plain",  "plain",  "double_word",  "plain",  "plain",  "plain",  "plain",  "plain",  "double_word",  "plain",  "plain",  "triple_letter",  "plain"};
+        String[] row6 = { "plain",  "triple_letter",  "plain",  "plain",  "plain",  "triple_letter",  "plain",  "plain",  "plain",  "triple_letter",  "plain",  "plain",  "plain",  "plain",  "plain"};
+        String[] row7 = { "plain",  "plain",  "double_letter",  "plain",  "plain",  "plain",  "double_letter",  "plain",  "double_letter",  "plain",  "plain",  "plain",  "double_letter",  "plain",  "plain"};
+        String[] row8 = { "triple_word",  "plain",  "plain",  "double_letter",  "plain",  "plain",  "plain",  "double_word",  "plain",  "plain",  "plain",  "double_letter",  "plain",  "plain",  "triple_word"};
+        String[] row9 = { "plain",  "plain",  "double_letter",  "plain",  "plain",  "plain",  "double_letter",  "plain",  "double_letter",  "plain",  "plain",  "plain",  "double_letter",  "plain",  "plain"};
+        String[] row10 = { "plain",  "triple_letter",  "plain",  "plain",  "plain",  "triple_letter",  "plain",  "plain",  "plain",  "triple_letter",  "plain",  "plain",  "plain",  "triple_letter",  "plain"};
+        String[] row11 = { "plain",  "plain",  "plain",  "plain",  "double_word",  "plain",  "plain",  "plain",  "plain",  "plain",  "double_word",  "plain",  "plain",  "plain",  "plain"};
+        String[] row12 = { "double_letter",  "plain",  "plain",  "double_word",  "plain",  "plain",  "plain",  "double_letter",  "plain",  "plain",  "plain",  "double_word",  "plain",  "plain",  "double_letter"};
+        String[] row13 = { "plain",  "plain",  "double_word",  "plain",  "plain",  "plain",  "double_letter",  "plain",  "double_letter",  "plain",  "plain",  "plain",  "double_word",  "plain",  "plain"};
+        String[] row14 = { "plain",  "double_word",  "plain",  "plain",  "plain",  "triple_letter",  "plain",  "plain",  "plain",  "triple_letter",  "plain",  "plain",  "plain",  "double_word",  "plain" };
+        String[] row15 = { "triple_word",  "plain",  "plain",  "double_letter",  "plain",  "plain",  "plain",  "triple_word",  "plain",  "plain",  "plain",  "double_letter",  "plain",  "plain",  "triple_word"};
 
         scrabble_style.add(new ArrayList<String>(Arrays.asList(row1)));
         scrabble_style.add(new ArrayList<String>(Arrays.asList(row2)));
