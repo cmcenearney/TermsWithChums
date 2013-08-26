@@ -3,7 +3,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
+/*
+TODO: score for words created as byproducts (in direction other than the main move)
+TODO: implement exchangeTiles()
+TODO: overall refactor!
+ */
 public class Game {
 
     public static final int num_tiles = 7;
@@ -84,6 +88,7 @@ public class Game {
 
         if (args[0].equals("EXCHANGE")){
             //TODO: implement method to exchange tiles
+            // exchangeTiles(current_player, args[1..last])
             return true;
         }
 
