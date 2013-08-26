@@ -1,8 +1,6 @@
+import org.junit.Before;
 import org.junit.Test;
 
-import java.util.regex.Pattern;
-
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
 
 //import java.nio.file;
@@ -10,6 +8,12 @@ import static org.junit.Assert.assertTrue;
 public class GameTest {
 
     Game test_game = new Game();
+
+    @Before
+    public void setUpTest(){
+        //set up board to test for side words
+    }
+
 
     @Test
     public void dictionaryIsLoading(){
@@ -25,13 +29,6 @@ public class GameTest {
         test_game.displayBoard();
     }
 
-    @Test
-    public void tileRegex(){
-        Pattern p = Pattern.compile("[A-Z]");
-        assertTrue(p.matcher("A").matches());
-        assertFalse(p.matcher("a").matches());
-        assertFalse(p.matcher("[=]").matches());
-    }
 
 //    @Test
 //    public void testCheck(){

@@ -4,9 +4,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 /*
-TODO: handle words created as byproducts (in direction other than the main move)
-    - scoring
-    - checking
+TODO: handle side words (in direction other than the main move)
+    - scoring - keep track of them during checkMove() somehow?
+    - checking - maybe something like  public String checkForSideWord(direction, character, row, column){}
 TODO: implement exchangeTiles()
 TODO: write more tests:
     - make sure the total set of tiles ( board + players + bag) stays the same
@@ -115,6 +115,8 @@ public class Game {
             return false;
         }
     }
+
+    //public String checkForSideWord(direction, character, row, column){}
 
     public boolean checkMove(int row, int column, String word, boolean across, Player player) {
 
