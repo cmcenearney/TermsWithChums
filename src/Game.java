@@ -161,6 +161,71 @@ public class Game {
             }
             // the space is empty and player has a tile for the letter, pop the letter off tile_values
             else if (!space_occupied && tile_values.contains(current_letter)) {
+                // this is a stub to check the letter around it
+                if (across) {
+                    // TODO: Check it there is a move to the north and the south
+                    // Want to check column + i + 1 && column + i - 1
+                    // STart with down
+                    int next_col = column + 1 + i;
+                    BoardSpace next_space = board.getSpace(row, next_col);
+                    String new_word = new String();
+                    new_word += current_space.getValue();
+                    while (next_space.isOccupied()) {
+                        new_word += next_space.getValue();
+                        next_col++;
+                        next_space = board.getSpace(row, next_col);
+                    }
+                    if (!validWord(new_word)) {
+                        return false;
+                    } else {
+                        // TODO: Calculate and return more points
+                    }
+                    // Start with up
+                    next_col = column - 1 + i;
+                    next_space = board.getSpace(row, next_col);
+                    new_word = "";
+                    while (next_space.isOccupied()) {
+                        new_word = next_space.getValue() + new_word;
+                        next_col--;
+                        next_space = board.getSpace(row, next_col);
+                    }
+                    if (!validWord(new_word)) {
+                        return false;
+                    } else {
+                        // TODO: Calculate and return more points
+                    }
+                } else {
+                    // TODO: Check it there is a move to the east and the west
+                    // Want to check row + i + 1 && row + i - 1
+                    // Start with west
+                    int next_row = row + 1 + i;
+                    BoardSpace next_space = board.getSpace(next_row, column);
+                    String new_word = new String();
+                    while (next_space.isOccupied()) {
+                        new_word += next_space.getValue();
+                        next_row++;
+                        next_space = board.getSpace(next_row, column);
+                    }
+                    if (!validWord(new_word)) {
+                        return false;
+                    } else {
+                        // TODO: Calculate and return more points
+                    }
+                    // Start with east
+                    next_row = row - 1 + i;
+                    next_space = board.getSpace(next_row, column);
+                    new_word = "";
+                    while (next_space.isOccupied()) {
+                        new_word = next_space.getValue() + new_word;
+                        next_row--;
+                        next_space = board.getSpace(next_row, column);
+                    }
+                    if (!validWord(new_word)) {
+                        return false;
+                    } else {
+                        // TODO: Calculate and return more points
+                    }
+                }
                 tile_values.remove(current_letter);
             }
             // the space is empty and player doesn't have a tile for the letter
