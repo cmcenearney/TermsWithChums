@@ -7,6 +7,12 @@ import java.util.List;
 
 public class BoardConfig {
 
+    public static String plain = " _ ";
+    public static String double_letter = " = ";
+    public static String double_word = "[=]";
+    public static String triple_letter = " ≡ ";
+    public static String triple_word = "[≡]";
+
     public List<ArrayList<String>> scrabble_style = new ArrayList<ArrayList<String>>(15);
 
     public BoardConfig() {

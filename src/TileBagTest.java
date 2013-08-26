@@ -1,10 +1,5 @@
 import org.junit.Test;
-
-import java.util.List;
-
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TileBagTest {
 
@@ -15,6 +10,19 @@ public class TileBagTest {
         for (Tile tile : test_bag.getTiles()){
             System.out.println(tile.getCharacter());
         }
+        assertEquals(98, test_bag.getTiles().size());
+    }
+
+    @Test
+    public void testDraw(){
+        System.out.println("tile bag size: " + test_bag.getTiles().size());
+        Tile tile = test_bag.randomDraw();
+        System.out.println("1 tile drawn : " + tile.getCharacter());
+        System.out.println("tile bag size: " + test_bag.getTiles().size());
+        Tile tile2 = test_bag.randomDraw();
+        System.out.println("2nd tile drawn : " + tile2.getCharacter());
+        System.out.println("tile bag size: " + test_bag.getTiles().size());
+        assertEquals(96, test_bag.getTiles().size());
     }
 
 }

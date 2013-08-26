@@ -2,8 +2,9 @@ public class BoardSpace {
 
     private static final String[] valid_types = {"double_letter","double_word","triple_letter", "triple_word", "plain"};
 
-    private String type = "normal";
+    private String type = "plain";
     private String value = null;
+    private boolean occupied = false;
 
     public BoardSpace(){
     }
@@ -20,10 +21,21 @@ public class BoardSpace {
 
     public void setValue(String value) {
         this.value = value;
+        if (value != null){
+            this.occupied = true;
+        }
     }
 
     public String getType() {
         return type;
+    }
+
+    public boolean isOccupied() {
+        return occupied;
+    }
+
+    public void setOccupied(boolean occupied) {
+        this.occupied = occupied;
     }
 
 }
