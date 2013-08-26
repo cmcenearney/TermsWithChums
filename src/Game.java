@@ -4,8 +4,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 /*
-TODO: score for words created as byproducts (in direction other than the main move)
+TODO: handle words created as byproducts (in direction other than the main move)
+    - scoring
+    - checking
 TODO: implement exchangeTiles()
+TODO: write more tests:
+    - make sure the total set of tiles ( board + players + bag) stays the same
 TODO: overall refactor!
  */
 public class Game {
@@ -239,7 +243,7 @@ public class Game {
     // move must be of form {row},{colummn},{direction: either '>' or '^'}, {WORD}
     public void playGame(){
         Scanner scanner = new Scanner(System.in);
-        while (true){
+        while (tile_bag.getTiles().size() > 0){
             Player current_player = players.get(current_turn);
             displayBoard();
             System.out.println(current_player.getName() + ", it's your move. Score: " + scores.get(current_player) + ". Tiles: " + current_player.listTiles() );
