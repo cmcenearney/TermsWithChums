@@ -1,8 +1,6 @@
 import org.junit.Test;
 
-import java.util.regex.Pattern;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 //import java.nio.file;
@@ -26,23 +24,39 @@ public class GameTest {
     }
 
     @Test
-    public void tileRegex(){
-        Pattern p = Pattern.compile("[A-Z]");
-        assertTrue(p.matcher("A").matches());
-        assertFalse(p.matcher("a").matches());
-        assertFalse(p.matcher("[=]").matches());
+    public void testSideWordWest(){
+        //set up board to test for side words
+        test_game.setNum_players(1);
+        Player player = new Player("test_player", test_game);
+        test_game.getPlayers().add(player);
+        test_game.getScores().put(player,0);
+        player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));
+        player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("E",1));
+        int move1 = test_game.makeMove(2,2,"MERGE",true,player);
+        player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));
+        player.addTile(new Tile("E",1));
+        boolean move2 = test_game.implementMove("A,8,^,MERGE",player);
+        assertTrue(move2);
+        test_game.displayBoard();
     }
 
-//    @Test
-//    public void testCheck(){
-//        Player player = new Player(name);
-//        test_game.players.add(i,player);
-//        scores.put(player,0);
-//        for (int j=0; j < num_tiles; j++){
-//            Tile t = tile_bag.randomDraw();
-//            player.addTile(t);
-//        }
-//        assertTrue(test_game.checkMove(1,1,)
-//    }
+
+    @Test
+    public void testSideWordWest2(){
+        //set up board to test for side words
+        test_game.setNum_players(1);
+        Player player = new Player("test_player", test_game);
+        test_game.getPlayers().add(player);
+        test_game.getScores().put(player,0);
+        player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));
+        player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("E",1));
+        int move1 = test_game.makeMove(2,2,"MERGE",true,player);
+        player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));
+        player.addTile(new Tile("E",1));
+        boolean move2 = test_game.implementMove("B,8,^,MERGE",player);
+        test_game.displayBoard();
+        assertFalse(move2);
+
+    }
 
 }

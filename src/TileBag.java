@@ -21,8 +21,12 @@ public class TileBag {
         return tiles;
     }
 
+    public void addTile(Tile t) {
+        tiles.add(t);
+    }
+
     public Tile randomDraw(){
-        int random_index = (int )(Math.random() * tiles.size());
+        int random_index = (int)(Math.random() * tiles.size());
         return tiles.remove(random_index);
     }
 
