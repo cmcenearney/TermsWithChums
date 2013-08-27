@@ -60,25 +60,21 @@ public class Player {
         return false;
     }
 
-    //TODO overhaul this - need to able to exchange "N,N" or "N" - correctly handle multiple tiles with same value
+    //doesn't handle user error: if exchanges contains a char not in tiles
     public ArrayList<String> exchangeTiles(ArrayList<String> exchanges){
-        ArrayList<String> ex_s = new ArrayList<String>();
         ArrayList<Tile> ex_tiles = new ArrayList<Tile>();
-        for (String s : exchanges){
+        while (exchanges.size() > 0){
+            String s = exchanges.get(0);
             for (Tile t : tiles){
                if (t.getCharacter().equals(s)){
-                   ex_s.add(s);
                    game.getTile_bag().addTile(t);
                    ex_tiles.add(t);
-                   continue;
+                   exchanges.remove(s);
                }
             }
         }
         for (Tile t : ex_tiles){
             tiles.remove(t);
-        }
-        for (String s : ex_s){
-            tiles.remove(s);
         }
         while (tiles.size() < Game.num_tiles){
             tiles.add(game.getTile_bag().randomDraw());
