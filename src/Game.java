@@ -8,12 +8,13 @@ TODO: handle side words (in direction other than the main move)
     - scoring - keep track of them during checkMove() somehow?
     - checking - maybe something like  public String checkForSideWord(direction, character, row, column){}
 TODO: implement exchangeTiles()
+TODO: shuffleTiles()
 TODO: write more tests:
     - make sure the total set of tiles ( board + players + bag) stays the same
 TODO: overall refactor!
  */
 public class Game {
-
+    //attribute
     public static final int num_tiles = 7;
     private HashSet<String> dictionary = new HashSet<String>();
     private Board board = new Board();
@@ -23,10 +24,35 @@ public class Game {
     private Integer current_turn = 0;
     protected TileBag tile_bag = new TileBag();
 
+    //constructors
     public Game(){
         this.createDictionary();
     }
 
+    //getters,setters
+    public HashMap<Player, Integer> getScores() {
+        return scores;
+    }
+    public List<Player> getPlayers() {
+        return players;
+    }
+    public Integer getNum_players() {
+        return num_players;
+    }
+    public void setNum_players(int n) {
+        this.num_players=n;
+    }
+    public Integer getCurrent_turn() {
+        return current_turn;
+    }
+    public TileBag getTile_bag() {
+        return tile_bag;
+    }
+    public HashSet<String> getDictionary() {
+        return dictionary;
+    }
+
+    //methods
     public void createDictionary() {
         File file = new File("resources/words.txt");
         try {
@@ -49,50 +75,24 @@ public class Game {
         return this.dictionary.contains(word);
     }
 
-    public HashSet<String> getDictionary() {
-        return dictionary;
-    }
-
-    public void displayBoard(){
-        //System.out.println("    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 ");
-        //top guide row
-        System.out.print("   ");
-        for (int i = 0; i < this.board.board_size; i++){
-            if (Integer.toString(i+1).length() == 1) {
-                System.out.print(" ");
-            }
-            System.out.print( (i+1) + " " );
-
-        }
-        System.out.print("\n");
-        // remaining rows
-        for (int i = 0; i < this.board.board_size; i++){
-            //make the "gutter" - convert row index to char A-O
-            System.out.print(" " + Character.toString((char) (i + 65)) + " ");
-            for (BoardSpace space : this.board.getRow(i)){
-                if (space.isOccupied()){
-                    System.out.print(" " + space.getValue() + " ");
-                }
-                else {
-                    String output = this.board.empty_space_values.get(space.getType());
-                    System.out.print(output);
-                }
-            }
-            System.out.print("\n");
-        }
-    }
 
     public boolean implementMove(String move,Player current_player){
         if (move.equals("PASS")){
             System.out.println("Ok, you are passing. Better luck next time.");
             return true;
         }
-
+        if (move.equals("SHUFFLE")){
+            current_player.shuffleTiles();
+            //System.out.println(current_player.getName() + ", it's your move. Tiles: " + current_player.listTiles() );
+            return true;
+        }
         String[] args = move.split(",");
 
         if (args[0].equals("EXCHANGE")){
             //TODO: implement method to exchange tiles
-            // exchangeTiles(current_player, args[1..last])
+            ArrayList<String> exchanges = new ArrayList<String>(Arrays.asList(Arrays.copyOfRange(args, 1, args.length)));
+            System.out.println("Exchanging: " + exchanges.toString());
+            current_player.exchangeTiles(exchanges);
             return true;
         }
 
@@ -102,7 +102,7 @@ public class Game {
         String word = args[3];
         if ( checkMove(row, column, word, across, current_player) ) {
             int move_score = makeMove(row, column, word, across, current_player);
-            System.out.println("Well done, that move scored: " + move_score + " points.");
+            System.out.println("Well done, that move scored " + move_score + " points.");
             int new_total_score = scores.get(current_player) + move_score;
             scores.put(current_player,new_total_score);
             while (current_player.getTiles().size() < num_tiles){
@@ -290,6 +290,34 @@ public class Game {
         return score*multiplicative_factor;
     }
 
+    //control-flow + output stuff
+    public void displayBoard(){
+        //top guide row
+        System.out.print("   ");
+        for (int i = 0; i < Board.board_size; i++){
+            if (Integer.toString(i+1).length() == 1) {
+                System.out.print(" ");
+            }
+            System.out.print( (i+1) + " " );
+        }
+        System.out.print("\n");
+        // remaining rows
+        for (int i = 0; i < Board.board_size; i++){
+            //make the "gutter" - convert row index to char A-O
+            System.out.print(" " + Character.toString((char) (i + 65)) + " ");
+            for (BoardSpace space : this.board.getRow(i)){
+                if (space.isOccupied()){
+                    System.out.print(" " + space.getValue() + " ");
+                }
+                else {
+                    String output = this.board.empty_space_values.get(space.getType());
+                    System.out.print(output);
+                }
+            }
+            System.out.print("\n");
+        }
+    }
+
     public void preGame(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("WELCOME TO TERMS WITH CHUMS!");
@@ -299,7 +327,7 @@ public class Game {
         for (int i = 0; i < num_players; i++){
             System.out.println("Enter name for player " + (i+1) + ":");
             String name = scanner.next();
-            Player player = new Player(name);
+            Player player = new Player(name, this);
             players.add(i,player);
             scores.put(player,0);
             for (int j=0; j < num_tiles; j++){

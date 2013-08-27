@@ -1,6 +1,6 @@
 import org.junit.Test;
-
 import static org.junit.Assert.*;
+
 
 //import java.nio.file;
 
@@ -38,10 +38,11 @@ public class GameTest {
     @Test
     public void testSideWordWest(){
         //set up board to test for side words
-        test_game.num_players = 1;
-        Player player = new Player();
-        test_game.players.add(player);
-        test_game.scores.put(player,0);
+
+        test_game.setNum_players(1);
+        Player player = new Player("test_player", test_game);
+        test_game.getPlayers().add(player);
+        test_game.getScores().put(player,0);
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));
         player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("E",1));
         int move1 = test_game.makeMove(2,2,"MERGE",true,player);
@@ -57,14 +58,14 @@ public class GameTest {
     @Test
     public void testSideWordWest2(){
         //set up board to test for side words
-        test_game.num_players = 1;
-        Player player = new Player();
-        test_game.players.add(player);
-        test_game.scores.put(player,0);
+
+        test_game.setNum_players(1);
+        Player player = new Player("test_player", test_game);
+        test_game.getPlayers().add(player);
+        test_game.getScores().put(player,0);
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));
         player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("E",1));
         int move1 = test_game.makeMove(2,2,"MERGE",true,player);
-
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));
         player.addTile(new Tile("E",1));
         boolean move2 = test_game.implementMove("B,8,^,MERGE",player);
@@ -72,16 +73,6 @@ public class GameTest {
         assertFalse(move2);
 
     }
-//    @Test
-//    public void testCheck(){
-//        Player player = new Player(name);
-//        test_game.players.add(i,player);
-//        scores.put(player,0);
-//        for (int j=0; j < num_tiles; j++){
-//            Tile t = tile_bag.randomDraw();
-//            player.addTile(t);
-//        }
-//        assertTrue(test_game.checkMove(1,1,)
-//    }
+
 
 }
