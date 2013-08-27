@@ -117,6 +117,8 @@ public class Game {
     }
 
     //public String checkForSideWord(direction, character, row, column){}
+    //if across is true. check north and south
+    //else check east and west
 
     public boolean checkMove(int row, int column, String word, boolean across, Player player) {
 
@@ -177,8 +179,8 @@ public class Game {
                         next_col++;
                         next_space = board.getSpace(row, next_col);
                     }
-                    if (!validWord(new_word)) {
-                        continue;//return false;
+                    if (new_word.length() > 1 && !validWord(new_word)) {
+                        return false;
                     } else {
                         // TODO: Calculate and return more points
                         intersects_existing_word = true;
@@ -192,8 +194,8 @@ public class Game {
                         next_col--;
                         next_space = board.getSpace(row, next_col);
                     }
-                    if (!validWord(new_word)) {
-                        continue;
+                    if (new_word.length() > 1 && !validWord(new_word)) {
+                        return false;
                     } else {
                         // TODO: Calculate and return more points
                         intersects_existing_word = true;
@@ -210,8 +212,8 @@ public class Game {
                         next_row++;
                         next_space = board.getSpace(next_row, column);
                     }
-                    if (!validWord(new_word)) {
-                        continue;
+                    if (new_word.length() > 1 && !validWord(new_word)) {
+                        return false;
                     } else {
                         // TODO: Calculate and return more points
                         intersects_existing_word = true;
