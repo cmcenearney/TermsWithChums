@@ -12,10 +12,10 @@ implementing exchangeTiles()
 board
 -----
 
-[≡] triple word score
-[=] double word score
- =  double letter score
- ≡  triple letter score
+[≡] triple word score  
+[=] double word score  
+ =  double letter score  
+ ≡  triple letter score  
 
 
 ```
