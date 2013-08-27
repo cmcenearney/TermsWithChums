@@ -6,16 +6,17 @@ final project for CSF
 exchange_tiles branch
 --------------------
 
-implementing exchangeTiles()
+- implement exchangeTiles()  
+- implement shuffleTiles()  
 
 
 board
 -----
 
-[≡] triple word score  
-[=] double word score  
- =  double letter score  
- ≡  triple letter score  
+[≡]  triple word score  
+[=]  double word score  
+ =   double letter score  
+ ≡   triple letter score  
 
 
 ```

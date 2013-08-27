@@ -7,8 +7,7 @@ import java.util.*;
 TODO: handle side words (in direction other than the main move)
     - scoring - keep track of them during checkMove() somehow?
     - checking - maybe something like  public String checkForSideWord(direction, character, row, column){}
-TODO: implement exchangeTiles()
-TODO: shuffleTiles()
+
 TODO: write more tests:
     - make sure the total set of tiles ( board + players + bag) stays the same
 TODO: overall refactor!
