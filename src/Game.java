@@ -114,11 +114,43 @@ public class Game {
             return false;
         }
     }
+    /*
+    public String checkForSideWord(direction, character, row, column){}
+    looking along an axis - left<>right or up<>down - there are four possibilities:
+    - word to one side
+    - word to other side
+    - word to neither side
+    - placing character connects both sides, creating one huge new word
 
-    //public String checkForSideWord(direction, character, row, column){}
-    //if across is true. check north and south
-    //else check east and west
+    */
+    /*
+    public ArrayList<String> checkForSideWord(boolean across, String character, int row, int column){
+        ArrayList<String> side_words = new ArrayList<String>();
+        BoardSpace next_space = new BoardSpace();
+        if (across){
+            //look east
+            next_space = board.getSpace(row, column);
+            while (next_space.isOccupied() ){
 
+            }
+            //look west
+            while (next_space.isOccupied()){
+
+            }
+        }
+        else {
+            //look north
+            while (next_space.isOccupied()){
+
+            }
+            //south
+            while (next_space.isOccupied()){
+
+            }
+        }
+        return side_words;
+    }
+    */
     public boolean checkMove(int row, int column, String word, boolean across, Player player) {
 
         //first check that it's a word
