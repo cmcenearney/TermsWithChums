@@ -71,7 +71,7 @@ public class Game {
 
 
     public boolean validWord(String word){
-        return this.dictionary.contains(word);
+        return this.dictionary.contains(word.toUpperCase());
     }
 
 

@@ -37,8 +37,7 @@ public class GameTest {
 
     @Test
     public void testSideWordWest(){
-        //set up board to test for side words
-
+        //set up board to test for
         test_game.setNum_players(1);
         Player player = new Player("test_player", test_game);
         test_game.getPlayers().add(player);
@@ -46,18 +45,16 @@ public class GameTest {
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));
         player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("E",1));
         int move1 = test_game.makeMove(2,2,"MERGE",true,player);
-
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));
         player.addTile(new Tile("E",1));
         boolean move2 = test_game.implementMove("A,8,^,MERGE",player);
         assertTrue(move2);
-        test_game.displayBoard();
+        //test_game.displayBoard();
     }
 
-
+    /*
     @Test
     public void testSideWordWest2(){
-        //set up board to test for side words
 
         test_game.setNum_players(1);
         Player player = new Player("test_player", test_game);
@@ -73,6 +70,6 @@ public class GameTest {
         assertFalse(move2);
 
     }
-
+    */
 
 }
