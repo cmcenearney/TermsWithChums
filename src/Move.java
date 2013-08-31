@@ -16,16 +16,19 @@ public class Move {
     public boolean validateMove() {
         //first check that it's a word
         if (!game.validWord(word)) {
+            System.out.println(word + " is not a valid word (in our dictionary).");
             return false;
         }
 
         //then check that it isn't too long
         if (across) {
             if (column + word.length() >= Board.board_size) {
+                System.out.println(word + " is too big for this space.");
                 return false;
             }
         } else {
             if (row + word.length() >= Board.board_size) {
+                System.out.println(word + " is too big for this space.");
                 return false;
             }
         }
