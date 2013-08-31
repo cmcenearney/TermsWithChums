@@ -28,7 +28,7 @@ public class Game {
         this.createDictionary();
     }
 
-    //getters,setters
+    //gettersm + setters
     public HashMap<Player, Integer> getScores() {
         return scores;
     }
@@ -69,36 +69,54 @@ public class Game {
 
     }
 
-
     public boolean validWord(String word){
         return this.dictionary.contains(word.toUpperCase());
     }
 
-
-    public boolean implementMove(String move,Player current_player){
-        if (move.equals("PASS")){
+    //rename this - we have makeMove() - this is really a move controller...
+    public boolean moveController(String move_str,Player current_player){
+        move_str.toUpperCase();
+        if (move_str.equals("PASS")  || move_str.equals("P")){
             System.out.println("Ok, you are passing. Better luck next time.");
             return true;
         }
-        if (move.equals("SHUFFLE") || move.equals("S")){
+        if (move_str.equals("SHUFFLE") || move_str.equals("S")){
             current_player.shuffleTiles();
             //System.out.println(current_player.getName() + ", it's your move. Tiles: " + current_player.listTiles() );
             return false;
         }
-        String[] args = move.split(",");
+        String[] args = move_str.split(",");
 
-        if (args[0].equals("EXCHANGE")){
-            //TODO: implement method to exchange tiles
+        if (args[0].equals("EXCHANGE")  || args[0].equals("E")){
+            //TODO: validate tiles
             ArrayList<String> exchanges = new ArrayList<String>(Arrays.asList(Arrays.copyOfRange(args, 1, args.length)));
             System.out.println("Exchanging: " + exchanges.toString());
             current_player.exchangeTiles(exchanges);
             return true;
         }
-
+        //TODO: validate move args
         int row = ( (int) args[0].charAt(0)) - 65;
         int column = Integer.parseInt(args[1]) - 1;
         boolean across = (args[2].equals(">"));
         String word = args[3];
+        Move move = new Move(this,row, column,word, across );
+        /*
+        if ( move.isValid() )  {
+            int score = move.score();
+            int new_total_score = scores.get(current_player) + score;
+            scores.put(current_player,new_total_score);
+            while (current_player.getTiles().size() < num_tiles){
+                current_player.addTile(tile_bag.randomDraw());
+            }
+            return true;
+        }
+        else {
+            //print message? Move will print its own details about why not valid?
+            //System.out.println("invalid move");
+            return false;
+        }
+         */
+
         if ( checkMove(row, column, word, across, current_player) ) {
             int move_score = makeMove(row, column, word, across, current_player);
             System.out.println("Well done, that move scored " + move_score + " points.");
@@ -114,43 +132,7 @@ public class Game {
             return false;
         }
     }
-    /*
-    public String checkForSideWord(direction, character, row, column){}
-    looking along an axis - left<>right or up<>down - there are four possibilities:
-    - word to one side
-    - word to other side
-    - word to neither side
-    - placing character connects both sides, creating one huge new word
 
-    */
-    /*
-    public ArrayList<String> checkForSideWord(boolean across, String character, int row, int column){
-        ArrayList<String> side_words = new ArrayList<String>();
-        BoardSpace next_space = new BoardSpace();
-        if (across){
-            //look east
-            next_space = board.getSpace(row, column);
-            while (next_space.isOccupied() ){
-
-            }
-            //look west
-            while (next_space.isOccupied()){
-
-            }
-        }
-        else {
-            //look north
-            while (next_space.isOccupied()){
-
-            }
-            //south
-            while (next_space.isOccupied()){
-
-            }
-        }
-        return side_words;
-    }
-    */
     public boolean checkMove(int row, int column, String word, boolean across, Player player) {
 
         //first check that it's a word
@@ -370,7 +352,6 @@ public class Game {
         System.out.println();
     }
 
-
     //TODO: do this for real - atm this is just to get things running
     // move must be of form {row},{colummn},{direction: either '>' or '^'}, {WORD}
     public void playGame(){
@@ -380,10 +361,14 @@ public class Game {
             displayBoard();
             System.out.println(current_player.getName() + ", it's your move. Score: " + scores.get(current_player) + ". Tiles: " + current_player.listTiles() );
             String move = scanner.next();
-            if (implementMove(move,current_player) ) {
+            if (moveController(move, current_player) ) {
                 current_turn = (current_turn + 1) % num_players;
             }
         }
+
+    }
+    // when the tilebag is empty
+    public void endGame() {
 
     }
 

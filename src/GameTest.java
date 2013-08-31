@@ -47,7 +47,7 @@ public class GameTest {
         int move1 = test_game.makeMove(2,2,"MERGE",true,player);
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));
         player.addTile(new Tile("E",1));
-        boolean move2 = test_game.implementMove("A,8,^,MERGE",player);
+        boolean move2 = test_game.moveController("A,8,^,MERGE",player);
         assertTrue(move2);
         //test_game.displayBoard();
     }
