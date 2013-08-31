@@ -80,10 +80,10 @@ public class Game {
             System.out.println("Ok, you are passing. Better luck next time.");
             return true;
         }
-        if (move.equals("SHUFFLE")){
+        if (move.equals("SHUFFLE") || move.equals("S")){
             current_player.shuffleTiles();
             //System.out.println(current_player.getName() + ", it's your move. Tiles: " + current_player.listTiles() );
-            return true;
+            return false;
         }
         String[] args = move.split(",");
 
