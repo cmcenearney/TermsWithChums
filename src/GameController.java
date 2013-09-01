@@ -13,7 +13,14 @@ public class GameController {
         this.model = m;
         this.view = new GameView(this.model, this);
         scanner = new Scanner(System.in);
-        //preGame();
+        preGame();
+    }
+
+    // setup without calling preGame, for testing
+    public GameController(GameModel m, boolean test_mode) {
+        this.model = m;
+        this.view = new GameView(this.model, this);
+        scanner = new Scanner(System.in);
     }
 
     //move control - parsing, validation, routing, etc

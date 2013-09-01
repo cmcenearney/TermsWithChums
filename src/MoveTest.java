@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 public class MoveTest {
 
     GameModel test_game = new GameModel();
-    GameController test_cntrl = new GameController(test_game);
+    GameController test_cntrl = new GameController(test_game, true);
     Player player = new Player(test_game);
 
     @Before

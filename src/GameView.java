@@ -1,3 +1,5 @@
+
+//TODO: get this view passing input back to the controller - at that point this code might be modular enough to wire to a different front-end, maybe Android?
 public class GameView {
 
     private GameModel model;

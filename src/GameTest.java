@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 public class GameTest {
 
     GameModel test_game = new GameModel();
-    GameController test_cntrl = new GameController(test_game);
+    GameController test_cntrl = new GameController(test_game, true);
     Player player = new Player(test_game);
 
     @Before
