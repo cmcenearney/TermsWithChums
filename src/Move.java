@@ -12,7 +12,7 @@ public class Move {
     }
 
     //attributes
-    private Game game;
+    private GameModel game;
     private ArrayList<SideWord> side_words = new ArrayList<SideWord>();
     private int row;
     private int column;
@@ -22,7 +22,7 @@ public class Move {
     protected Board board;
 
     //constructor(s)
-    public Move (Game game, int row, int column, String word, boolean across, Player player){
+    public Move (GameModel game, int row, int column, String word, boolean across, Player player){
         this.game = game; this.row = row; this.column = column; this.word = word; this.across = across; this.player = player; this.board = game.board;
     }
 

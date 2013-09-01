@@ -1,17 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public class Player implements Comparable<Player> {
 
     //attributes
     private List<Tile> tiles = new ArrayList<Tile>();
     private String name;
-    private Game game;
+    private GameModel game;
+    private int score = 0;
 
     //constructors
     public Player() {}
 
-    public Player(String name, Game game) {
+    public Player(String name, GameModel game) {
         this.name = name;
         this.game = game;
     }
@@ -26,6 +27,19 @@ public class Player {
     public List<Tile> getTiles(){
         return this.tiles;
     }
+    public int getScore() {
+        return score;
+    }
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    //implement Comparable
+    public int compareTo(Player p)
+    {
+        return(score - p.score);
+    }
+
 
     //methods
     public void addTile(Tile tile){
@@ -76,14 +90,14 @@ public class Player {
         for (Tile t : ex_tiles){
             tiles.remove(t);
         }
-        while (tiles.size() < Game.num_tiles){
+        while (tiles.size() < GameModel.num_tiles){
             tiles.add(game.getTile_bag().randomDraw());
         }
         return exchanges;
     }
 
     public void shuffleTiles(){
-        int num_swaps = Game.num_tiles / 2;
+        int num_swaps = GameModel.num_tiles / 2;
         for (int i = 0; i < num_swaps; i++){
             int random_index1 = (int)(Math.random() * tiles.size());
             int random_index2 = (int)(Math.random() * tiles.size());

@@ -4,16 +4,16 @@ import static org.junit.Assert.*;
 
 public class MoveTest {
 
-    Game test_game = new Game();
+    GameModel test_game = new GameModel();
+    GameController test_cntrl = new GameController(test_game);
     Player player = new Player();
 
     @Before
     public void setUp() throws Exception {
         test_game.num_players = 1;
         test_game.players.add(player);
-        test_game.scores.put(player,0);
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("E",1));
-        test_game.moveController("C,3,>,MERGE",player);
+        test_cntrl.moveController("C,3,>,MERGE",player);
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));player.addTile(new Tile("E",1));
     }
 
@@ -37,7 +37,7 @@ public class MoveTest {
         Move move = new Move(test_game, 0, 7 ,"MERGER", false, player );
         assertTrue(move.checkMove());
         assertEquals(42, move.makeMove());
-        test_game.displayBoard();
+        test_cntrl.view.displayBoard();
         System.out.println(move.makeMove());
         assertEquals(18, move.makeMove());
         assertEquals(false, move.checkMove());
