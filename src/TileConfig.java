@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 /*
 copy tile distribution from resources/letterFrequencies.txt
-TODO: store this as config data somewhere
+TODO: store this as config data in a file
  */
 
 

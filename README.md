@@ -3,11 +3,10 @@ TERMS WITH CHUMS
 
 final project for CSF
 
-exchange_tiles branch
+move_class branch
 --------------------
 
-- implement exchangeTiles()  
-- implement shuffleTiles()  
+- implement a Move class that can checkMove then makeMove, accumulate side words, and return score
 
 
 board
