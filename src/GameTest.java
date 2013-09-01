@@ -7,7 +7,7 @@ public class GameTest {
 
     GameModel test_game = new GameModel();
     GameController test_cntrl = new GameController(test_game);
-    Player player = new Player();
+    Player player = new Player(test_game);
 
     @Before
     public void setUpTest(){

@@ -13,7 +13,7 @@ public class GameController {
         this.model = m;
         this.view = new GameView(this.model, this);
         scanner = new Scanner(System.in);
-        preGame();
+        //preGame();
     }
 
     //move control - parsing, validation, routing, etc

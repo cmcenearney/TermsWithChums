@@ -10,7 +10,9 @@ public class Player implements Comparable<Player> {
     private int score = 0;
 
     //constructors
-    public Player() {}
+    public Player(GameModel game) {
+        this.game = game;
+    }
 
     public Player(String name, GameModel game) {
         this.name = name;
