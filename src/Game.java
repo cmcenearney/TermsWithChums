@@ -16,7 +16,7 @@ public class Game {
     //attribute
     public static final int num_tiles = 7;
     private HashSet<String> dictionary = new HashSet<String>();
-    private Board board = new Board();
+    protected Board board = new Board();
     protected HashMap<Player, Integer> scores = new HashMap();
     protected List<Player> players = new ArrayList<Player>();
     protected Integer num_players = 2;
@@ -66,16 +66,14 @@ public class Game {
         catch (IOException e){
             System.out.println("problem reading dictionary file:" + e);
         }
-
     }
 
     public boolean validWord(String word){
         return this.dictionary.contains(word.toUpperCase());
     }
 
-    //rename this - we have makeMove() - this is really a move controller...
     public boolean moveController(String move_str,Player current_player){
-        move_str.toUpperCase();
+        move_str = move_str.toUpperCase();
         if (move_str.equals("PASS")  || move_str.equals("P")){
             System.out.println("Ok, you are passing. Better luck next time.");
             return true;
@@ -87,7 +85,7 @@ public class Game {
         }
         String[] args = move_str.split(",");
 
-        if (args[0].equals("EXCHANGE")  || args[0].equals("E")){
+        if (args[0].equals("EXCHANGE")  || args[0].equals("EX")){
             //TODO: validate tiles
             ArrayList<String> exchanges = new ArrayList<String>(Arrays.asList(Arrays.copyOfRange(args, 1, args.length)));
             System.out.println("Exchanging: " + exchanges.toString());
@@ -99,8 +97,9 @@ public class Game {
         int column = Integer.parseInt(args[1]) - 1;
         boolean across = (args[2].equals(">"));
         String word = args[3];
-        Move move = new Move(this,row, column,word, across );
         /*
+        Move move = new Move(this,row, column,word, across, current_player );
+
         if ( move.isValid() )  {
             int score = move.score();
             int new_total_score = scores.get(current_player) + score;
@@ -133,6 +132,36 @@ public class Game {
         }
     }
 
+    //
+    public String getSideWord(boolean across, String character, int row, int column){
+        String side_word = character;
+        // look in the positive direction starting one tile over, if occupied, append to side-word, continue
+        int pos_ind;   if (across) {pos_ind = row+1;} else {pos_ind = column+1;}
+        BoardSpace next_space;
+        while(pos_ind < Board.board_size) {
+            if (across) { next_space = board.getSpace(pos_ind, column);} else {next_space = board.getSpace(row,pos_ind);}
+            if (next_space.isOccupied()){
+                side_word += next_space.getValue();
+                pos_ind++;
+            } else {
+                break;
+            }
+        }
+        // look in the negative direction starting one tile over, if occupied, prepend to side-word, continue
+        int neg_ind;   if (across) {neg_ind = row-1;} else {neg_ind = column-1;}
+        while(neg_ind >= 0) {
+            if (across) { next_space = board.getSpace(neg_ind, column);} else {next_space = board.getSpace(row,neg_ind);}
+            if (next_space.isOccupied()){
+                side_word = next_space.getValue() + side_word;
+                neg_ind--;
+            } else {
+                break;
+            }
+        }
+        return side_word;
+    }
+
+
     public boolean checkMove(int row, int column, String word, boolean across, Player player) {
 
         //first check that it's a word
@@ -155,99 +184,44 @@ public class Game {
         boolean is_first_word = board.isEmpty();
         boolean intersects_existing_word = false;
         ArrayList<String> tile_values = player.getTileValues();
+
         //iterate over the proposed word / board spaces and check at each space/letter that it is possible
         for (int i = 0; i < word.length(); i++) {
-            BoardSpace current_space;
+            int x = row; int y = column;
             String current_letter = Character.toString(word.charAt(i));
-            if (across) {
-                current_space = board.getSpace(row, (column + i));
-            }
-            else {
-                current_space = board.getSpace((row+i), column);
-            }
+            if (across) { y = column + i; } else {  x = row + i; }
+            BoardSpace current_space = board.getSpace(x,y);
             boolean space_occupied = current_space.isOccupied();
             String current_space_value = current_space.getValue();
+
             // there is a letter on the space and it's *not* the right letter of the word we're checking
             if (space_occupied && !current_letter.equals(current_space_value)) {
                 return false;
             }
+
             // there is a letter on the space and it *is* the right letter of the word we're checking
             else if (space_occupied && current_letter.equals(current_space_value)) {
                 intersects_existing_word = true;
                 continue;
             }
-            // the space is empty and player has a tile for the letter, pop the letter off tile_values
+
+            // the space is empty and player has a tile for the letter
             else if (!space_occupied && tile_values.contains(current_letter)) {
-                // this is a stub to check the letter around it
-                if (!across) {
-                    // TODO: Check it there is a move to the north and the south
-                    // Want to check column + i + 1 && column + i - 1
-                    // STart with down
-                    int next_col = column + 1 + i;
-                    BoardSpace next_space = board.getSpace(row, next_col);
-                    String new_word = new String();
-                    new_word += current_letter; //current_space.getValue();
-                    while (next_space.isOccupied()) {
-                        new_word += next_space.getValue();
-                        next_col++;
-                        next_space = board.getSpace(row, next_col);
-                    }
-                    if (new_word.length() > 1 && !validWord(new_word)) {
-                        return false;
-                    } else {
-                        // TODO: Calculate and return more points
-                        intersects_existing_word = true;
-                    }
-                    // Start with up
-                    next_col = column - 1 + i;
-                    next_space = board.getSpace(row, next_col);
-                    new_word = current_letter;
-                    while (next_space.isOccupied()) {
-                        new_word = next_space.getValue() + new_word;
-                        next_col--;
-                        next_space = board.getSpace(row, next_col);
-                    }
-                    if (new_word.length() > 1 && !validWord(new_word)) {
-                        return false;
-                    } else {
-                        // TODO: Calculate and return more points
-                        intersects_existing_word = true;
-                    }
-                } else {
-                    // TODO: Check it there is a move to the east and the west
-                    // Want to check row + i + 1 && row + i - 1
-                    // Start with west
-                    int next_row = row + 1 + i;
-                    BoardSpace next_space = board.getSpace(next_row, column);
-                    String new_word = current_letter;
-                    while (next_space.isOccupied()) {
-                        new_word += next_space.getValue();
-                        next_row++;
-                        next_space = board.getSpace(next_row, column);
-                    }
-                    if (new_word.length() > 1 && !validWord(new_word)) {
-                        return false;
-                    } else {
-                        // TODO: Calculate and return more points
-                        intersects_existing_word = true;
-                    }
-                    // Start with east
-                    next_row = row - 1 + i;
-                    next_space = board.getSpace(next_row, column);
-                    new_word = current_letter;
-                    while (next_space.isOccupied()) {
-                        new_word = next_space.getValue() + new_word;
-                        next_row--;
-                        next_space = board.getSpace(next_row, column);
-                    }
-                    if (!validWord(new_word)) {
-                        continue;
-                    } else {
-                        // TODO: Calculate and return more points
-                        intersects_existing_word = true;
-                    }
+                /*checkSideWords
+                - if there are valid side words,
+                    - set intersects_existing_word to true
+                    - accumulate them somehow for scoring
+                - if there are any invalid side words
+                    - output error details to player
+                    - return false
+                if there are no side words continue on without changing intersects_existing_word
+                 */
+                // maybe checkSideWords returns an int, 0=no side words, -1=invalid, <1=score for valid side words ?
+                String side_word = getSideWord(across, current_letter, x,y);
+                if (side_word.length() > 1 && validWord(side_word)) {
+                    tile_values.remove(current_letter);
+                    intersects_existing_word = true;
                 }
-                tile_values.remove(current_letter);
             }
             // the space is empty and player doesn't have a tile for the letter
             else if (!space_occupied && !tile_values.contains(current_letter)) {

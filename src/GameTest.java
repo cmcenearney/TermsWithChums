@@ -1,5 +1,9 @@
+import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 
 
 //import java.nio.file;
@@ -7,27 +11,67 @@ import static org.junit.Assert.*;
 public class GameTest {
 
     Game test_game = new Game();
+    Player player = new Player();
 
-//    @Before
-//    public void setUpTest(){
-//        test_game.num_players = 1;
-//        Player player = new Player();
-//        test_game.players.add(player);
-//        test_game.scores.put(player,0);
-//        player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));
-//        player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("E",1));
-//        boolean move1 = test_game.implementMove("C,3,>,MERGE",player);
-//
-//    }
+    @Before
+    public void setUpTest(){
+        test_game.num_players = 1;
+        test_game.players.add(player);
+        test_game.scores.put(player,0);
+        player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1)); player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("E",1));
+        boolean move1 = test_game.moveController("C,3,>,MERGE", player);
+        //test_game.displayBoard();
+        player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1)); player.addTile(new Tile("E",1));
+    }
 
+    @Test
+    public void setUpWorked(){
+        assertEquals("M",test_game.board.getSpace(2,2).getValue());
+    }
 
     @Test
     public void dictionaryIsLoading(){
         assertTrue(test_game.getDictionary().size() > 0);
     }
+
     @Test
     public void wordCheck(){
         assertTrue(test_game.validWord("Abadite"));
+    }
+
+    @Test(expected=IndexOutOfBoundsException.class)
+    public void testOutOfBounds(){
+        test_game.board.getSpace(1, 15);
+    }
+
+    @Test
+    public void testSideWordWest(){
+        assertEquals("MERGER", test_game.getSideWord(false, "R", 2, 7));
+        assertTrue(test_game.validWord("MERGER"));
+    }
+
+
+    @Test
+    public void indirectIntersect(){
+        assertTrue(test_game.checkMove(0, 7, "MERGER", false,  player));
+        assertTrue(test_game.moveController("a,8,^,merger", player));
+        //assertEquals("ME", test_game.getSideWord(true, "M", 1, 6));
+        test_game.displayBoard();
+    }
+    @Test
+    public void testSideWordSouth(){
+
+        player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1)); player.addTile(new Tile("E",1)); player.addTile(new Tile("R",1));
+        assertTrue(test_game.moveController("a,8,^,merger", player));
+        test_game.displayBoard();
+
+        player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1)); player.addTile(new Tile("E",1)); player.addTile(new Tile("R",1));
+        assertEquals("ME", test_game.getSideWord(true, "M", 1, 6));
+        assertEquals("ME", test_game.getSideWord(false, "M", 1, 6));
+        assertEquals(true, test_game.checkMove(1, 6, "ME", false,  player));
+        assertEquals(true, test_game.checkMove(1, 6, "ME", true,  player));
+        assertTrue(test_game.moveController("b,7,^,me", player));
+        test_game.displayBoard();
     }
 
     @Test
@@ -35,6 +79,7 @@ public class GameTest {
         test_game.displayBoard();
     }
 
+    /*
     @Test
     public void testSideWordWest(){
         //set up board to test for
@@ -52,7 +97,7 @@ public class GameTest {
         //test_game.displayBoard();
     }
 
-    /*
+
     @Test
     public void testSideWordWest2(){
 
