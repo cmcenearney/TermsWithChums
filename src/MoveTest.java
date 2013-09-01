@@ -33,19 +33,13 @@ public class MoveTest {
     }
 
     @Test
-    public void testSideWordEast(){
-        assertTrue(test_game.moveController("A,8,^,MERGE",player));
+    public void testMove(){
+        Move move = new Move(test_game, 0, 7 ,"MERGER", false, player );
+        assertTrue(move.checkMove());
+        assertEquals(42, move.makeMove());
         test_game.displayBoard();
-//        player.addTile(new Tile("D",1));player.addTile(new Tile("E",1));player.addTile(new Tile("E",1));player.addTile(new Tile("D",1));player.addTile(new Tile("R",1));
-//        assertFalse(test_game.moveController("E,7,^,DEED",player));
+        System.out.println(move.makeMove());
     }
-    /*
-    @Test
-    public void testSideWordNorth(){
-        assertTrue(test_game.moveController("E,7,>,REED",player));
-        test_game.displayBoard();
-    }
-      */
 
  /*
     @After

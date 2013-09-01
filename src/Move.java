@@ -69,7 +69,7 @@ public class Move {
             int multiplicative_factor = 1;
             if (type.equals("triple_word")) { multiplicative_factor = 3;}
             else if (type.equals("double_word")) { multiplicative_factor = 2;}
-            int placed_tile_score = TileConfig.tile_config.get(board.getSpace(row, column).getValue()).points;
+            int placed_tile_score = TileConfig.tile_config.get(character).points;
             if (type.equals("triple_letter")) { placed_tile_score *= 3;}
             else if (type.equals("double_letter")) { placed_tile_score *= 2;}
             points += placed_tile_score;
@@ -80,7 +80,7 @@ public class Move {
         return false;
     }
 
-    public boolean checkMove(int row, int column, String word, boolean across, Player player) {
+    public boolean checkMove() {
 
         //first check that it's a word
         if (!game.validWord(word)) {
@@ -142,7 +142,7 @@ public class Move {
         return (is_first_word || intersects_existing_word);
     }
 
-    public int makeMove(int row, int column, String word, boolean across, Player player) {
+    public int makeMove() {
         int score = 0;
         int multiplicative_factor = 1;
         for (int i = 0; i < word.length(); i++) {
