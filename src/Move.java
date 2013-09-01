@@ -99,19 +99,6 @@ public class Move {
             return false;
         }
 
-        //then check that it isn't too long
-        if (across) {
-            if (column + word.length() >= Board.board_size) {
-                error_message = "Sorry, '" + word + "' is too long for that spot.";
-                return false;
-            }
-        } else {
-            if (row + word.length() >= Board.board_size) {
-                error_message = "Sorry, '" + word + "' is too long for that spot.";
-                return false;
-            }
-        }
-
         //then check that it will work
         boolean is_first_word = board.isEmpty();
 
@@ -123,6 +110,10 @@ public class Move {
             int x = row; int y = column;
             String current_letter = Character.toString(word.charAt(i));
             if (across) { y = column + i; } else {  x = row + i; }
+            if (y >= Board.board_size || x >= Board.board_size) {
+                error_message = "Sorry, '" + word + "' is too big for that spot.";
+                return false;
+            }
             BoardSpace current_space = board.getSpace(x,y);
             boolean space_occupied = current_space.isOccupied();
             String current_space_value = current_space.getValue();
