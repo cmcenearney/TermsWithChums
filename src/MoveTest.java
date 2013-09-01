@@ -43,6 +43,17 @@ public class MoveTest {
         assertEquals(false, move.checkMove());
     }
 
+    @Test
+    public void wordMustIntersect(){
+        Move move = new Move(test_game, 1, 1, "TEST", true, player);
+        assertEquals(false, move.checkMove());
+    }
+
+    @Test
+    public void displayBoard(){
+        test_cntrl.view.displayBoard();
+    }
+
  /*
     @After
     public void tearDown() throws Exception {

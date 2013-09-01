@@ -64,7 +64,7 @@ public class GameController {
         }
         else {
             //print message? Move will print its own details about why not valid?
-            //view.printLine("invalid move");
+            view.printLine(move.getError_message());
             return false;
         }
     }

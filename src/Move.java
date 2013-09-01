@@ -17,13 +17,23 @@ public class Move {
     private int row;
     private int column;
     private String word;
+    private String error_message = "error";
     private boolean across;
     private Player player;
     protected Board board;
+    boolean intersects_existing_word = false;
+    boolean is_first_word;
 
     //constructor(s)
     public Move (GameModel game, int row, int column, String word, boolean across, Player player){
         this.game = game; this.row = row; this.column = column; this.word = word; this.across = across; this.player = player; this.board = game.board;
+        //store this somewhere instead of running every move
+        is_first_word = board.isEmpty();
+    }
+
+    //getters + setters
+    public String getError_message() {
+        return error_message;
     }
 
     //methods
@@ -75,6 +85,7 @@ public class Move {
             points += placed_tile_score;
             points *= multiplicative_factor;
             side_words.add(new SideWord(side_word, points));
+            intersects_existing_word = true;
             return true;
         }
         return false;
@@ -84,23 +95,26 @@ public class Move {
 
         //first check that it's a word
         if (!game.validWord(word)) {
+            error_message = "Sorry, '" + word + "' is not a valid word (in our dictionary).";
             return false;
         }
 
         //then check that it isn't too long
         if (across) {
             if (column + word.length() >= Board.board_size) {
+                error_message = "Sorry, '" + word + "' is too long for that spot.";
                 return false;
             }
         } else {
             if (row + word.length() >= Board.board_size) {
+                error_message = "Sorry, '" + word + "' is too long for that spot.";
                 return false;
             }
         }
 
         //then check that it will work
         boolean is_first_word = board.isEmpty();
-        boolean intersects_existing_word = false;
+
         boolean tile_placed = false;
         ArrayList<String> tile_values = player.getTileValues();
 
@@ -129,7 +143,6 @@ public class Move {
                 if ( sideWord(across, current_letter, x,y)) {
                     tile_values.remove(current_letter);
                     tile_placed = true;
-                    intersects_existing_word = true;
                 }
                 else {
                     return false;

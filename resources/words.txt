@@ -24838,6 +24838,7 @@ borealis
 borean
 Boreas
 borecole
+bored
 boredom
 boree
 boreen
@@ -82218,6 +82219,7 @@ handy
 handyblow
 handybook
 handygrip
+hang
 hangability
 hangable
 hangalai

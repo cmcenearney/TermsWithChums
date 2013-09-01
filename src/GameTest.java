@@ -30,6 +30,11 @@ public class GameTest {
     }
 
     @Test
+    public void wordCheck1(){
+        assertTrue(test_game.validWord("hang"));
+    }
+
+    @Test
     public void wordCheck(){
         assertTrue(test_game.validWord("Abadite"));
     }
