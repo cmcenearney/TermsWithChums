@@ -101,6 +101,7 @@ public class Move {
         //then check that it will work
         boolean is_first_word = board.isEmpty();
         boolean intersects_existing_word = false;
+        boolean tile_placed = false;
         ArrayList<String> tile_values = player.getTileValues();
 
         //iterate over the proposed word / board spaces and check at each space/letter that it is possible
@@ -127,6 +128,7 @@ public class Move {
             else if (!space_occupied && tile_values.contains(current_letter)) {
                 if ( sideWord(across, current_letter, x,y)) {
                     tile_values.remove(current_letter);
+                    tile_placed = true;
                     intersects_existing_word = true;
                 }
                 else {
@@ -139,7 +141,7 @@ public class Move {
                 return false;
             }
         }
-        return (is_first_word || intersects_existing_word);
+        return (tile_placed && (is_first_word || intersects_existing_word) );
     }
 
     public int makeMove() {

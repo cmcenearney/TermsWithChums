@@ -97,11 +97,12 @@ public class Game {
         int column = Integer.parseInt(args[1]) - 1;
         boolean across = (args[2].equals(">"));
         String word = args[3];
-        /*
+
         Move move = new Move(this,row, column,word, across, current_player );
 
         if ( move.checkMove() )  {
             int score = move.makeMove();
+            System.out.println("Well done, that move scored " + score + " points.");
             int new_total_score = scores.get(current_player) + score;
             scores.put(current_player,new_total_score);
             while (current_player.getTiles().size() < num_tiles){
@@ -114,8 +115,9 @@ public class Game {
             //System.out.println("invalid move");
             return false;
         }
-         */
 
+        //old move stuff (no Move class)
+        /*
         if ( checkMove(row, column, word, across, current_player) ) {
             int move_score = makeMove(row, column, word, across, current_player);
             System.out.println("Well done, that move scored " + move_score + " points.");
@@ -130,6 +132,7 @@ public class Game {
             System.out.println("invalid move");
             return false;
         }
+        */
     }
 
     //this just gets the word (at minimum the character itself) - could return boolean (with side effect accumulating the words) or int (score of the word)

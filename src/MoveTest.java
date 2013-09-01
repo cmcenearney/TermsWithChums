@@ -39,6 +39,8 @@ public class MoveTest {
         assertEquals(42, move.makeMove());
         test_game.displayBoard();
         System.out.println(move.makeMove());
+        assertEquals(18, move.makeMove());
+        assertEquals(false, move.checkMove());
     }
 
  /*
