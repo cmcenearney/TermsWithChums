@@ -100,8 +100,8 @@ public class Game {
         /*
         Move move = new Move(this,row, column,word, across, current_player );
 
-        if ( move.isValid() )  {
-            int score = move.score();
+        if ( move.checkMove() )  {
+            int score = move.makeMove();
             int new_total_score = scores.get(current_player) + score;
             scores.put(current_player,new_total_score);
             while (current_player.getTiles().size() < num_tiles){
@@ -132,7 +132,7 @@ public class Game {
         }
     }
 
-    //
+    //this just gets the word (at minimum the character itself) - could return boolean (with side effect accumulating the words) or int (score of the word)
     public String getSideWord(boolean across, String character, int row, int column){
         String side_word = character;
         // look in the positive direction starting one tile over, if occupied, append to side-word, continue
@@ -160,7 +160,6 @@ public class Game {
         }
         return side_word;
     }
-
 
     public boolean checkMove(int row, int column, String word, boolean across, Player player) {
 
@@ -207,22 +206,16 @@ public class Game {
 
             // the space is empty and player has a tile for the letter
             else if (!space_occupied && tile_values.contains(current_letter)) {
-                /*checkSideWords
-                - if there are valid side words,
-                    - set intersects_existing_word to true
-                    - accumulate them somehow for scoring
-                - if there are any invalid side words
-                    - output error details to player
-                    - return false
-                if there are no side words continue on without changing intersects_existing_word
-                 */
-                // maybe checkSideWords returns an int, 0=no side words, -1=invalid, <1=score for valid side words ?
                 String side_word = getSideWord(across, current_letter, x,y);
                 if (side_word.length() > 1 && validWord(side_word)) {
                     tile_values.remove(current_letter);
                     intersects_existing_word = true;
                 }
+                else if  (side_word.length() > 1 && !validWord(side_word)) {
+                    return false;
+                }
             }
+
             // the space is empty and player doesn't have a tile for the letter
             else if (!space_occupied && !tile_values.contains(current_letter)) {
                 return false;
@@ -304,7 +297,7 @@ public class Game {
             System.out.print("\n");
         }
     }
-
+    //ask num players, names
     public void preGame(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("WELCOME TO TERMS WITH CHUMS!");
@@ -325,8 +318,6 @@ public class Game {
         System.out.println("OK, let's play.");
         System.out.println();
     }
-
-    //TODO: do this for real - atm this is just to get things running
     // move must be of form {row},{colummn},{direction: either '>' or '^'}, {WORD}
     public void playGame(){
         Scanner scanner = new Scanner(System.in);
@@ -339,11 +330,17 @@ public class Game {
                 current_turn = (current_turn + 1) % num_players;
             }
         }
+        this.endGame();
 
     }
     // when the tilebag is empty
     public void endGame() {
-
+        Scanner scanner = new Scanner(System.in);
+        String move = "";
+        while (!move.equals("quit")){
+            System.out.println("No more tiles - what do we do ?!  (type 'quit' to quit)");
+            move = scanner.next();
+        }
     }
 
 }
