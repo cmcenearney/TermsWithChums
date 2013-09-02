@@ -203,6 +203,8 @@ public class Move {
             }
         }
         score *= multiplicative_factor;
+        //is it a 'bingo'?  (must came after multiplying)
+        if (player.getTiles().size() == 0) {score += 50;}
         for (SideWord s : side_words){
             score += s.points;
         }

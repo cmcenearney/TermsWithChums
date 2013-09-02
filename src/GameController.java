@@ -115,7 +115,7 @@ public class GameController {
     // when the tilebag is empty
     public void endGame() {
         Collections.sort(model.players);
-        view.printLine("There are no more tiles in the bag. Gme over!");
+        view.printLine("There are no more tiles in the bag. Game over!");
         view.printLine("The winner is " + model.players.get(0).getName());
         for (Player p : model.players){
             view.printLine(p.getName() + " finished with " + p.getScore() + " points.");
