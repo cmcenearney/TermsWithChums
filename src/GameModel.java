@@ -16,6 +16,7 @@ public class GameModel {
     protected Integer num_players = 2;
     protected Integer current_turn = 0;
     protected TileBag tile_bag = new TileBag();
+    protected boolean is_first_move = true;
 
     //constructors
     public GameModel(){

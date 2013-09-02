@@ -22,13 +22,13 @@ public class Move {
     private Player player;
     protected Board board;
     boolean intersects_existing_word = false;
-    boolean is_first_word;
+    //boolean is_first_word;
 
     //constructor(s)
     public Move (GameModel game, int row, int column, String word, boolean across, Player player){
         this.game = game; this.row = row; this.column = column; this.word = word; this.across = across; this.player = player; this.board = game.board;
-        //store this somewhere instead of running every move
-        is_first_word = board.isEmpty();
+        //storing this in Game as is_first_move - initializes as true then every sucessful move sets to false - not great, but better than board.isEmpty
+        //is_first_word = board.isEmpty();
     }
 
     //getters + setters
@@ -92,19 +92,29 @@ public class Move {
     }
 
     public boolean checkMove() {
-
         //first check that it's a word
         if (!game.validWord(word)) {
             error_message = "Sorry, '" + word + "' is not a valid word (in our dictionary).";
             return false;
         }
-
+        //if it's the first move make sure it touches the center tile
+        if (game.is_first_move){
+            if (across){
+                if (!(row == 7 && column <= 7 && column+word.length() >= 7 )) {
+                   error_message = "Error - the first move must touch the center tile (H,8).";
+                   return false;
+                }
+            }
+            else {
+                if (!(column == 7 && row <= 7 && row+word.length() >= 7 )) {
+                    error_message = "Error - the first move must touch the center tile (H,8).";
+                    return false;
+                }
+            }
+        }
         //then check that it will work
-        boolean is_first_word = board.isEmpty();
-
         boolean tile_placed = false;
         ArrayList<String> tile_values = player.getTileValues();
-
         //iterate over the proposed word / board spaces and check at each space/letter that it is possible
         for (int i = 0; i < word.length(); i++) {
             int x = row; int y = column;
@@ -145,10 +155,11 @@ public class Move {
                 return false;
             }
         }
-        return (tile_placed && (is_first_word || intersects_existing_word) );
+        return (tile_placed && (game.is_first_move || intersects_existing_word) );
     }
 
     public int makeMove() {
+        game.is_first_move = false;
         int score = 0;
         int multiplicative_factor = 1;
         for (int i = 0; i < word.length(); i++) {
@@ -197,6 +208,4 @@ public class Move {
         }
         return score;
     }
-
-
 }

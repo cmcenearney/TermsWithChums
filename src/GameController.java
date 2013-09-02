@@ -16,7 +16,7 @@ public class GameController {
         preGame();
     }
 
-    // setup without calling preGame, for testing
+    //setup without calling preGame, for testing
     public GameController(GameModel m, boolean test_mode) {
         this.model = m;
         this.view = new GameView(this.model, this);
@@ -36,7 +36,10 @@ public class GameController {
             return false;
         }
         String[] args = move_str.split(",");
-
+        if (args.length != 4) {
+            view.printLine("Input error - please make sure you enter a move in the format {row},{column},{> or ^},{word}");
+            return false;
+        }
         if (args[0].equals("EXCHANGE")  || args[0].equals("EX")){
             //TODO: validate tiles (player can only exchange tiles that she has)
             ArrayList<String> exchanges = new ArrayList<String>(Arrays.asList(Arrays.copyOfRange(args, 1, args.length)));
@@ -97,7 +100,10 @@ public class GameController {
         while (model.tile_bag.getTiles().size() > 0){
             Player current_player = model.players.get(model.current_turn);
             view.displayBoard();
-            view.printLine(current_player.getName() + ", it's your move. Score: " + current_player.getScore() + ". Tiles: " + current_player.listTiles() );
+            for (Player p : model.players){
+                view.printLine(p.getName() + ": " + p.getScore());
+            }
+            view.printLine(current_player.getName() + ", it's your move. Tiles: " + current_player.listTiles() );
             String move = scanner.next();
             if (moveController(move, current_player) ) {
                 model.current_turn = (model.current_turn + 1) % model.num_players;
