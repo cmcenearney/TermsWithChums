@@ -3,30 +3,38 @@ TERMS WITH CHUMS
 
 final project for CSF
 
-It's going to be awesome
+mvc_attempt branch
+--------------------
+
+- forked from move_class
+- attempt to refactor using mvc pattern
+- controller is "listening" to the view currently - should probably put the Scanner in the view and have it send input to the controller ?
+- also moved score from Game to Player
+
+board
+-----
+
+[≡]  triple word score  
+[=]  double word score  
+ =   double letter score  
+ ≡   triple letter score  
 
 
-
-board display... in the terminal?
 ```
-   A B C D E F G H I J K L M N O  
-01 - - - - - - - - - - - - - - -  
-02 - - - - - - - - - - - - - - -  
-03 - - - - - - - - - - - - - - -  
-04 - - - - - - - - - - - - - - -  
-05 - - - - - - - - - - - - - - -  
-06 - - - - - W O R D S - - - - -  
-07 - - - - - - - - I - - - - - -  
-08 - - - - - - - - S - - - - - -  
-09 - - - - - - - - P - - - - - -  
-10 - - - - - - - - L - - - - - -  
-11 - - - - - - - - A T - - - - -  
-12 - - - - T - - - Y - - - - - -  
-13 - - - - H - - - I - - - - - -  
-14 - - - T E R M I N A L - - - -  
-15 - - - - - - - - G - - - - - -  
+    1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
+ A [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
+ B  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _
+ C  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _
+ D  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  =
+ E  _  _  _  _ [=] _  _  _  _  _ [=] _  _  ≡  _
+ F  _  ≡  _  _  _  ≡  _  _  _  ≡  _  _  _  _  _
+ G  _  _  =  _  _  _  =  _  =  _  _  _  =  _  _
+ H [≡] _  _  =  _  _  _ [=] _  _  _  =  _  _ [≡]
+ I  _  _  =  _  _  _  =  _  =  _  _  _  =  _  _
+ J  _  ≡  _  _  _  ≡  _  _  _  ≡  _  _  _  ≡  _
+ K  _  _  _  _ [=] _  _  _  _  _ [=] _  _  _  _
+ L  =  _  _ [=] _  _  _  =  _  _  _ [=] _  _  =
+ M  _  _ [=] _  _  _  =  _  =  _  _  _ [=] _  _
+ N  _ [=] _  _  _  ≡  _  _  _  ≡  _  _  _ [=] _
+ O [≡] _  _  =  _  _  _ [≡] _  _  _  =  _  _ [≡]
 ```
-
-
-
-

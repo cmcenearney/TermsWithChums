@@ -2,18 +2,18 @@ import java.util.HashMap;
 
 /*
 copy tile distribution from resources/letterFrequencies.txt
-TODO: store this as config data somewhere
+TODO: store this as config data in a file
  */
 
 
 public class TileConfig {
 
     public class Tuple {
-        public final int x;
-        public final int y;
+        public final int number;
+        public final int points;
         public Tuple(int x, int y) {
-            this.x = x;
-            this.y = y;
+            this.number = x;
+            this.points = y;
         }
     }
 
