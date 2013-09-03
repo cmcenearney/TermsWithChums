@@ -3,13 +3,7 @@ TERMS WITH CHUMS
 
 final project for CSF
 
-mvc_attempt branch
---------------------
 
-- forked from move_class
-- attempt to refactor using mvc pattern
-- controller is "listening" to the view currently - should probably put the Scanner in the view and have it send input to the controller ?
-- also moved score from Game to Player
 
 board
 -----
