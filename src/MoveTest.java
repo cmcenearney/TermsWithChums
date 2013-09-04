@@ -13,15 +13,15 @@ public class MoveTest {
         test_game.num_players = 1;
         test_game.players.add(player);
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("E",1));
-        test_cntrl.moveController("C,3,>,MERGE",player);
+        test_cntrl.moveController("h,3,>,MERGE",player);
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1));player.addTile(new Tile("E",1));
     }
 
     @Test
     public void upperCaseDoesntMessUpNumsAndPunc(){
-        assertTrue( ("E,7,>,REED").toUpperCase().equals("E,7,>,REED") );
-        assertTrue( ("e,7,>,reed").toUpperCase().equals("E,7,>,REED") );
-        assertTrue( ("e,7,^,reed").toUpperCase().equals("E,7,^,REED") );
+        assertTrue( ("<,8,>,REED").toUpperCase().equals("<,8,>,REED") );
+//        assertTrue( ("f,8,>,reed").toUpperCase().equals("E,7,>,REED") );
+//        assertTrue( ("f,8,^,reed").toUpperCase().equals("E,7,^,REED") );
     }
 
     @Test
@@ -34,12 +34,12 @@ public class MoveTest {
 
     @Test
     public void testMove(){
-        Move move = new Move(test_game, 0, 7 ,"MERGER", false, player );
+        Move move = new Move(test_game, 5, 7 ,"MERGER", false, player );
         assertTrue(move.checkMove());
-        assertEquals(42, move.makeMove());
+        assertEquals(36, move.makeMove());
         test_cntrl.view.displayBoard();
         System.out.println(move.makeMove());
-        assertEquals(18, move.makeMove());
+        assertEquals(27, move.makeMove());
         assertEquals(false, move.checkMove());
     }
 

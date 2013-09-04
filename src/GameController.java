@@ -117,8 +117,16 @@ public class GameController {
         Collections.sort(model.players);
         view.printLine("There are no more tiles in the bag. Game over!");
         view.printLine("The winner is " + model.players.get(0).getName());
+        Player winner = model.players.get(0);
         for (Player p : model.players){
             view.printLine(p.getName() + " finished with " + p.getScore() + " points.");
+            boolean isWinner = false;
+            if (p == winner) {
+                isWinner = true;
+            } else {
+                isWinner = false;
+            }
+            ScoreSaver scoreSaver = new ScoreSaver(p.getName(), isWinner);
         }
         System.exit(0);
     }
