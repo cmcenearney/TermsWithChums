@@ -14,14 +14,14 @@ public class GameTest {
         test_game.num_players = 1;
         test_game.players.add(player);
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1)); player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("E",1));
-        boolean move1 = test_cntrl.moveController("C,3,>,MERGE", player);
+        boolean move1 = test_cntrl.moveController("h,3,>,MERGE", player);
         //test_game.displayBoard();
         player.addTile(new Tile("M",1));player.addTile(new Tile("E",1));player.addTile(new Tile("R",1));player.addTile(new Tile("G",1)); player.addTile(new Tile("E",1));
     }
 
     @Test
     public void setUpWorked(){
-        assertEquals("M",test_game.board.getSpace(2,2).getValue());
+        assertEquals("M",test_game.board.getSpace(7,2).getValue());
     }
 
     @Test
