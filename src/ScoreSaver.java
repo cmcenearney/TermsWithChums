@@ -6,17 +6,9 @@
  * To change this template use File | Settings | File Templates.
  */
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.Set;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class ScoreSaver {
 
@@ -38,7 +30,7 @@ public class ScoreSaver {
 
             String sCurrentLine;
 
-            br = new BufferedReader(new FileReader("../resources/scores.txt"));
+            br = new BufferedReader(new FileReader("resources/scores.txt"));
 
             while ((sCurrentLine = br.readLine()) != null) {
 
@@ -91,7 +83,7 @@ public class ScoreSaver {
 
         try
         {
-            File file = new File("../resources/scores.txt");
+            File file = new File("resources/scores.txt");
 
             if (!file.exists()) {
                 file.createNewFile();
