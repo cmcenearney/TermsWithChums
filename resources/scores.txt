@@ -1,3 +1,2 @@
-sandip,2,2
-sandip,1,2
-sandip,1,2
+sandip,1,1
+beyonce,1,0

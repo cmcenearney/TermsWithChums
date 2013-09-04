@@ -85,7 +85,8 @@ public class ScoreSaver {
         {
             File file = new File("resources/scores.txt");
 
-            if (!file.exists()) {
+            if (file.exists()) {
+                file.delete();
                 file.createNewFile();
             }
 
@@ -99,7 +100,7 @@ public class ScoreSaver {
                 int[] printScores = entry.getValue();
                 int printWins = printScores[0];
                 int printLosses = printScores[1];
-                bw.append(username);
+                bw.append(printUsername);
                 bw.append(',');
                 String printWinsToString = Integer.toString(printWins);
                 bw.append(printWinsToString);
