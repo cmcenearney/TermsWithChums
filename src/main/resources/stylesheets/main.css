@@ -1,0 +1,54 @@
+body {
+  font-family:  Helvetica, arial, freesans, clean, sans-serif;
+}
+
+.centered { 
+  margin: 0px auto; 
+}
+
+.text {
+  color:#232323;
+  font-weight: 500;
+}
+
+#board {
+  margin:0px auto; 
+  margin-top:128px;
+}
+table {
+  border-collapse: collapse;
+}
+table td {
+  vertical-align: middle;
+  text-align: center;
+  height:2.2em;
+  width:2.2em;
+  border-collapse: collapse;
+  border-style: solid;
+  border-color: #d1d1d1;
+  border-width: 1px;
+}
+
+.double_letter{
+  background-color: #aaccff;
+}
+.triple_letter{
+  background-color: #5599ee;
+}
+.triple_word{
+  background-color: #ee6655;
+}
+.double_word{
+  background-color: #ffbbbb;
+}
+
+.occupied {
+  background-color: #efefef;
+}
+a:link {color:#1a1a1a;}      /* unvisited link */
+a:visited {color:#1a1a1a;}  /* visited link */
+a:hover {color:#d5d5d5;}  /* mouse over link */
+a:active {color:#1a1a1a;}  /* selected link */
+
+
+
